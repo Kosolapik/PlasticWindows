@@ -479,12 +479,12 @@ textarea:focus {
   padding: 2rem 2rem;
 }
 
-.glazing .aluminum,
+/* .glazing .aluminum,
 .glazing .plastic,
 .glazing .french,
 .glazing .rise {
   display: none;
-}
+} */
 
 .glazing a.active {
   text-decoration: none;

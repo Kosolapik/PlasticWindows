@@ -36,8 +36,10 @@ function show_modal() {
 
 openModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
 openModal('.phone_link', '.popup', '.popup .popup_close');
-openModalByTime('.popup', 60000);
+// openModalByTime('.popup', 60000);
 
+// Код выше оптимизировал после просмотра видео
+// Код ниже сделал самостоятельно до просмотра видео
 
     // let btn_engineer_popup = document.querySelector('.popup_engineer_btn'),
     //     phone_link = document.querySelectorAll('.phone_link'),
