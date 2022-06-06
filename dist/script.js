@@ -15422,7 +15422,8 @@ function show_modal(state) {
     let trigger = document.querySelectorAll(triggerSelect),
         modal = document.querySelector(modalSelect),
         close = document.querySelector(closeSelect),
-        windows = document.querySelectorAll('[data-modal]');
+        windows = document.querySelectorAll('[data-modal]'),
+        scroll = calcScroll();
     trigger.forEach(item => {
       item.addEventListener('click', event => {
         event.preventDefault();
@@ -15431,6 +15432,7 @@ function show_modal(state) {
         });
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
+        document.body.style.marginRight = `${scroll}px`;
         console.log(event.target.className);
 
         if (event.target.classList.contains('popup_calc_btn')) {
@@ -15447,6 +15449,7 @@ function show_modal(state) {
         item.style.display = 'none';
       });
       modal.style.display = 'none';
+      document.body.style.marginRight = `0px`;
       document.body.style.overflow = '';
       setTimeout(() => {
         for (let key in state) {
@@ -15465,6 +15468,7 @@ function show_modal(state) {
         });
         modal.style.display = 'none';
         document.body.style.overflow = '';
+        document.body.style.marginRight = `0px`;
       }
     });
   }
@@ -15476,6 +15480,20 @@ function show_modal(state) {
       document.querySelector(select).style.display = 'block';
       document.body.style.overflow = 'hidden';
     }, time);
+  }
+
+  ;
+
+  function calcScroll() {
+    let div = document.createElement('div');
+    div.style.width = '50px';
+    div.style.height = '50px';
+    div.style.overflowY = 'scroll';
+    div.style.visibility = 'hidden';
+    document.body.appendChild(div);
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+    div.remove();
+    return scrollWidth;
   }
 
   ;
