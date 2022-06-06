@@ -1,6 +1,6 @@
 function tabs() {
 
-    function tabss (headerSelector, tabSelector, contentSelector, activeClass) {
+    function tabss (headerSelector, tabSelector, contentSelector, activeClass, display = 'block') {
 
         const header = document.querySelector(headerSelector),
             tab = header.querySelectorAll(tabSelector),
@@ -18,7 +18,7 @@ function tabs() {
         };
 
         function showContent(i = 0) {
-            content[i].style.display = 'block';
+            content[i].style.display = display;
             tab[i].classList.add(activeClass);
         };
 
@@ -45,6 +45,7 @@ function tabs() {
 
     tabss('.glazing_slider ', '.glazing_block', '.glazing_content', 'active');
     tabss('.decoration_slider', '.no_click', '.decoration_content > div > div', 'after_click');
+    tabss('.balcon_icons', '.balcon_icons_img', '.big_img > img', 'do_image_more', 'inline-block');
     
    
 
